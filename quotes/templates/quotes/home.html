@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #FFD6E4; /* Рожевий фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту по центру */
+        }
+        h1 {
+            color: #FF69B4; /* Рожевий колір заголовка */
+        }
+        a {
+            color: #4B0082; /* Фіолетовий колір посилань */
+            text-decoration: none; /* Видалення підкреслення посилань */
+            font-weight: bold; /* Жирний шрифт для посилань */
+        }
+        a:hover {
+            color: #8A2BE2; /* Фіолетовий колір при наведенні на посилання */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Quotes App</h1>
+    <p><a href="{% url 'add_author' %}">Add Author</a></p>
+    <p><a href="{% url 'add_quote' %}">Add Quote</a></p>
+    <p><a href="{% url 'all_quotes' %}">View All Quotes</a></p>
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'account_logout' %}">Logout</a></p>
+    {% else %}
+        <p><a href="{% url 'account_login' %}">Login</a></p>
+        <p><a href="{% url 'account_signup' %}">Sign Up</a></p>
+    {% endif %}
+</body>
+</html>

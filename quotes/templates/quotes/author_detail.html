@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Author Detail</title>
+    <style>
+        body {
+            background-color: #FFD6E4; /* Рожевий фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту по центру */
+        }
+        .container {
+            margin: 0 auto; /* Вирівнювання по центру */
+            width: 50%; /* Ширина контейнера */
+        }
+        h1 {
+            color: #4B0082; /* Фіолетовий колір для заголовка */
+        }
+        p {
+            margin-bottom: 20px; /* Інтервал між абзацами */
+        }
+        a {
+            color: #4B0082; /* Фіолетовий колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+        a:hover {
+            text-decoration: underline; /* Підкреслення по наведенню курсора */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ author.fullname }}</h1>
+        <p>{{ author.description }}</p>
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+    </div>
+</body>
+</html>
+

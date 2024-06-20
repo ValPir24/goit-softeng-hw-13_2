@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Quotes</title>
+    <style>
+        body {
+            background-color: #FFD6E4; /* Рожевий фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту по центру */
+        }
+        .container {
+            margin: 0 auto; /* Вирівнювання по центру */
+            width: 50%; /* Ширина контейнера */
+        }
+        .quote-container {
+            border: 2px solid #000; /* Чорна рамка */
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #FFF; /* Білий фон */
+            border-radius: 10px; /* Закруглені кути рамки */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тінь */
+        }
+        .quote-container p {
+            margin: 10px 0; /* Інтервал між абзацами */
+        }
+        .quote-container .quote-text {
+            font-style: italic; /* Курсивний шрифт для цитат */
+        }
+        .quote-container .author-link {
+            font-weight: bold; /* Жирний шрифт для посилань */
+            color: #4B0082; /* Фіолетовий колір */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+        .quote-container .author-link:hover {
+            color: #8A2BE2; /* Фіолетовий колір при наведенні */
+        }
+        .quote-container .tag {
+            margin-left: 5px;
+            background-color: #FF69B4; /* Рожевий колір тегів */
+            color: #FFF; /* Білий колір тексту */
+            padding: 3px 5px;
+            border-radius: 5px; /* Закруглені кути */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Quotes</h1>
+        {% for quote in quotes %}
+            <div class="quote-container">
+                <p class="quote-text">“{{ quote.quote }}”</p>
+                <p>by <a href="{% url 'author_detail' quote.author.pk %}" class="author-link">{{ quote.author.fullname }}</a> (<a href="{% url 'author_detail' quote.author.pk %}" class="author-link">about</a>)</p>
+                <p>
+                    Tags: 
+                    {% for tag in quote.tags.all %}
+                        <span class="tag">{{ tag.name }}</span>{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

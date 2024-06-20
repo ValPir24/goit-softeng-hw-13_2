@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Quote</title>
+    <style>
+        body {
+            background-color: #FFD6E4; /* Рожевий фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту по центру */
+        }
+        .container {
+            margin: 0 auto; /* Вирівнювання по центру */
+            width: 50%; /* Ширина контейнера */
+        }
+        h1 {
+            color: #4B0082; /* Фіолетовий колір для заголовка */
+        }
+        form {
+            margin-top: 20px; /* Інтервал перед формою */
+        }
+        p {
+            margin-top: 20px; /* Інтервал після форми */
+        }
+        button {
+            background-color: #4B0082; /* Фіолетовий колір кнопки */
+            color: white; /* Колір тексту кнопки */
+            border: none; /* Видалення рамки */
+            padding: 10px 20px; /* Відступи */
+            border-radius: 5px; /* Скруглення кутів */
+            cursor: pointer; /* Зміна курсора на вказівник */
+        }
+        button:hover {
+            background-color: #800080; /* Зміна коліру кнопки при наведенні курсора */
+        }
+        a {
+            color: #4B0082; /* Фіолетовий колір для посилань */
+            text-decoration: none; /* Видалення підкреслення */
+        }
+        a:hover {
+            text-decoration: underline; /* Підкреслення по наведенню курсора */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Quote</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Quote</button>
+        </form>
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+    </div>
+</body>
+</html>
+
